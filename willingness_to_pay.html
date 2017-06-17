@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to JQuery</title>
+    <script src="https://unpkg.com/jquery"></script>
+    
+    <script src="https://surveyjs.azureedge.net/0.12.17/survey.jquery.js"></script>
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <style type="text/css">
+    .btn-green {
+      background-color: #1ab394;
+      color: #fff;
+      border-radius: 3px;
+    }
+
+    .btn-green:hover, .btn-green:focus {
+        background-color: #18a689;
+        color: #fff;
+    }
+
+    .panel-footer {
+        text-align: right;
+        background-color: #fff;
+    }
+    </style>
+
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+
+    
+    <script>
+      Survey.Survey.cssType = "bootstrap";
+      Survey.defaultBootstrapCss.navigationButton = "btn btn-green";
+
+      window.survey = new Survey.Model({questions: [
+      { type: "matrix", name: "home_sell", title: "How likely are you to sell your home in...",
+         columns: [{ value: 1, text: "Very Unlikely" }, 
+                    { value: 2, text: "Unlikely" }, 
+                    { value: 3, text: "Likely" }, 
+                    { value: 4, text: "Very Likely" }],
+          rows: [{ value: "thisyear", text: "This year" }, 
+                 { value: "1year", text: "1 year" },
+                 { value: "2years", text: "2 years" }, 
+                 { value: "5years", text: "5 years" }]},
+   { type: "matrix", name: "life_events", title: "Are any of these events going to happen to you this year?",
+         columns: [{ value: 1, text: "Yes" }, 
+                    { value: 2, text: "No" }],
+          rows: [{ value: "Marriage", text: "Marriage" }, 
+                 { value: "child", text: "New child" },
+                 { value: "divorce", text: "Divorce" }, 
+                 { value: "job", text: "Job change" },
+                 { value: "retire", text: "Retirement" },
+                 { value: "moving", text: "Moving" },
+                 { value: "payraise", text: "Large pay raise" },
+                 { value: "schoolstatus", text: "Child starts, changes, or ends school" }]}
+      ]});
+      survey.onComplete.add(function(result) {
+      document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
+      });
+
+
+      $("#surveyElement").Survey({model:survey});
+    </script>
+</body>
+
+</html>
