@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Housing questions</title>
+    <script src="https://unpkg.com/jquery"></script>
+    
+    <script src="https://surveyjs.azureedge.net/0.12.17/survey.jquery.js"></script>
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <style type="text/css">
+    .btn-green {
+      background-color: #1ab394;
+      color: #fff;
+      border-radius: 3px;
+    }
+
+    .btn-green:hover, .btn-green:focus {
+        background-color: #18a689;
+        color: #fff;
+    }
+
+    .panel-footer {
+        text-align: right;
+        background-color: #fff;
+    }
+    </style>
+
+  <div>Tell us about yourself!</div>
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+
+
+    <script>
+      Survey.Survey.cssType = "bootstrap";
+      Survey.defaultBootstrapCss.navigationButton = "btn btn-green";
+
+      window.survey = new Survey.Model({ questions: [
+      { type: "checkbox", 
+          name: "q_1", 
+          title: "What are your dreams for your local community?", 
+          isRequired: false, 
+          colCount: 4, 
+          choices: ["Better healthcare." ,
+      "Safter streets",
+      "Cleaner air",
+      "Better schools"] },
+
+      { type: "checkbox", 
+          name: "q_2", 
+          title: "If you could change the world, what would you do?", 
+          isRequired: false, 
+          colCount: 4, 
+          choices: ["Improve healthcare." ,
+      "Make the world safer for women",
+      "Stop global climate change",
+      "Improve education for those who need it most"] },
+
+      {name:"donate", 
+      type:"text", 
+      title: "If timing the housing market allowed you to exceed your priced expectations, how much would you be willing to DONATE to a group / organization, cause or individual of your choice?", 
+      placeHolder:"$$$", 
+      isRequired: false},
+
+      {name:"invest", 
+      type:"text", 
+      title: "If timing the housing market allowed you to exceed your priced expectations, how much would you be willing to INVEST in an Impact Investment with a target return of 5-7%?", 
+      placeHolder:"$$$", 
+      isRequired: false},
+
+      {name:"invest", 
+      type:"text", 
+      title: "Is there a group, cause or individual, cause or individual that has enriched YOUR life in your local community?", 
+      placeHolder:"name of the group, cause or individual", 
+      isRequired: false},
+
+      {name:"invest", 
+      type:"text", 
+      title: "Do you already support that group, cause or individual financially?", 
+      placeHolder:"cause that you support", 
+      isRequired: false},
+
+      {name:"invest", 
+      type:"text", 
+      title: "What kind of group, cause or individual have you supported in the past?",
+      placeHolder:"group, cause or individual", 
+      isRequired: false}
+      
+      ]});
+
+      survey.onComplete.add(function(result) {
+      document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
+      });
+
+      $("#surveyElement").Survey({model:survey});
+    </script>
+</body>
+
+</html>
