@@ -94,7 +94,8 @@
       ]});
 
       survey.onComplete.add(function(result) {
-      document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
+      //document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
+      document.location = "willingness_to_pay.html";
       });
 
       $("#surveyElement").Survey({model:survey});

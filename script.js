@@ -133,6 +133,24 @@ $('.addValue').on("click", function( event ) {
     }
   });
  
+
+
+//save contact
+$('.displayChart').on("click", function( event ) {  
+    event.preventDefault();
+    if( auth != null ){
+
+      $.ajax({url: "http://www.zillow.com/webservice/GetZestimate.htm?zws-id=X1-ZWz195iegi5q17_93aho&zpid=48749425", success: function(result){
+        var json = convertXml2Json(result);
+    }});
+      
+
+      drawChart();
+    } else {
+      //inform user to login
+    }
+  });
+
 //prepare conatct object's HTML
 function contactHtmlFromObject(contact){
   console.log( contact );
@@ -151,4 +169,3 @@ function contactHtmlFromObject(contact){
   html += '</li>';
   return html;
 }
-

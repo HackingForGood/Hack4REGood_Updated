@@ -9,6 +9,11 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+   <script src="https://surveyjs.azureedge.net/0.12.17/survey.jquery.js"></script>
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./index.css">
   <style type="text/css">
     #contacts p, 
     #contacts p.lead{
@@ -26,6 +31,23 @@
       border-bottom: 0;
     }
   </style>
+   <style type="text/css">
+    .btn-green {
+      background-color: #1ab394;
+      color: #fff;
+      border-radius: 3px;
+    }
+
+    .btn-green:hover, .btn-green:focus {
+        background-color: #18a689;
+        color: #fff;
+    }
+
+    .panel-footer {
+        text-align: right;
+        background-color: #fff;
+    }
+    </style>
 </head>
 <body>
   <div class="container">
@@ -39,15 +61,13 @@
 
     <div class="row unauthenticated">
       <center>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContactModal">Add Contact</button>
+        <button type="button" class="btn btn-primary" onclick="location.href = 'tell_us_about_yourself.html';">Sell</button>
+        <button type="button" class="btn btn-primary" onclick="location.href = 'geoCode.html';">Buy</button>
       </center>
-      <div class="col-md-6">
-        <ul id="contacts" class="list-group">
-          <!-- Conatct Object li.list-group-item.contact will be added here by js -->
-        </ul>
-      </div>
     </div>
   </div>
+
+
   <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -84,6 +104,10 @@
       </div>
     </div>
   </div>
+  
+
+
+
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -108,45 +132,19 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="addContactModal" tabindex="-1" role="dialog" aria-labelledby="Add Contact" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <form method="post" name="contactForm">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="addContactModalLabel">Add Contact</h4>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" required placeholder="Enter name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" required placeholder="Enter Email">
-            </div>
-            <h3>Location</h3>
-            <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" class="form-control" id="city" placeholder="Enter City">
-            </div>
-            <div class="form-group">
-              <label for="email">State</label>
-              <input type="text" class="form-control" id="state" placeholder="Enter State">
-            </div>
-            <div class="form-group">
-              <label for="zip">Zip</label>
-              <input type="text" class="form-control" id="zip" placeholder="Enter Zip Code">
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary addValue">Submit</button>
-        </div>
-        </form>
-      </div>
-    </div>
+  
+
+
+
+  <div class="modal fade" id="tellUsAboutYou" tabindex="-1" role="dialog" aria-labelledby="Add Contact" aria-hidden="true">
+    <div>Tell us about yourself!</div>
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
   </div>
+  
+
+
+
   <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="Message" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -175,6 +173,9 @@
   <!-- Include Firebase Library -->
   <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js"></script>
   <!-- Contacts Store JavaScript -->
-  <script src="script.js"></script>
+  <script src="/scripts/xml2Json.js"></script>
+  <script src="script.js"></script>  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="charts.js"></script>
 </body>
 </html>

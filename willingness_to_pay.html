@@ -62,7 +62,8 @@
                  { value: "schoolstatus", text: "Child starts, changes, or ends school" }]}
       ]});
       survey.onComplete.add(function(result) {
-      document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
+      //document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
+      document.location = "chart.html";
       });
 
 
