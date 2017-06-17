@@ -1,0 +1,7 @@
+{
+  "name": "Hack4REGood",
+  "short_name": "Hack4REGood",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}

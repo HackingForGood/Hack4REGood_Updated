@@ -77,6 +77,9 @@ $('#doLogin').on('click', function (e) {
   $('#messageModalLabel').html('<span class="text-center text-info"><i class="fa fa-cog fa-spin"></i></span>');
   $('#messageModal').modal('show');
 
+  //var provider = new firebase.auth.GoogleAuthProvider();
+  //this.auth.signInWithPopup(provider);
+
   if( $('#loginEmail').val() != '' && $('#loginPassword').val() != '' ){
     //login the user
     dbRef.authWithPassword({
@@ -87,7 +90,7 @@ $('#doLogin').on('click', function (e) {
         console.log("Login Failed!", error);
         $('#messageModalLabel').html('<span class="text-danger">ERROR: '+ error.code + '</span>')
       } else {
-        console.log("Authenticated successfully with payload:", authData);
+       console.log("Authenticated successfully with payload:", authData);
         auth  = authData;
         $('#messageModalLabel').html('<span class="text-center text-success">Success!</span>')
         setTimeout(  function () {
