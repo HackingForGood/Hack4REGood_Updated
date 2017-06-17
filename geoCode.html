@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Google Maps API Example: Simple Geocoding</title>
+    <title>Hack4REGood</title>
     <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"
       type="text/javascript"></script>
     <script type="text/javascript">
@@ -32,7 +32,7 @@
             if (!point) {
               alert(address + " not found");
             } else {
-              map.setCenter(point, 15);
+              map.setCenter(point, 15000);
               var marker = new GMarker(point, {draggable: true});
               map.addOverlay(marker);
               GEvent.addListener(marker, "dragend", function() {
@@ -53,12 +53,12 @@
   <body onload="initialize()" onunload="GUnload()">
     <form action="#" onsubmit="showAddress(this.address.value); return false">
       <p>
-        Enter an address, and then drag the marker to tweak the location.
+        Enter an address, ZipCode .
         <br/>
-        The latitude/longitude will appear in the infowindow after each geocode/drag.
+        Hack4REGood Geocode/drag.
       </p>
       <p>
-        <input type="text" style="width:350px" name="address" value="1600 Amphitheatre Pky, Mountain View, CA" />
+        <input type="text" style="width:350px" name="address" value="Boston,MA" />
         <input type="submit" value="Go!" />
       </p>
       <div id="map_canvas" style="width: 600px; height: 400px"></div>
